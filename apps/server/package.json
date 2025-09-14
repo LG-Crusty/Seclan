@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.ts",
-    "build": "tsc -b"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -18,10 +18,10 @@
     "socket.io": "^4.8.1"
   },
   "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
-    "@types/node": "^24.3.3",
-    "@repo/typescript-config": "workspace:*"
-
+    "@types/express-serve-static-core": "^5.0.7",
+    "@types/node": "^24.3.3"
   }
 }
