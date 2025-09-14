@@ -1,1 +1,1 @@
-{"root":["./src/app.ts","./src/index.ts","./src/socket.server.ts","./src/middlewares/errormiddlewares.ts","./src/routes/routes.ts","./src/services/udpSocket.ts","./src/utils/apiError.ts","./src/utils/apiResponse.ts","./src/utils/asyncHandler.ts"],"version":"5.9.2"}
+{"root":["./src/app.ts","./src/index.ts","./src/socket.server.ts","./src/middlewares/errormiddlewares.ts","./src/routes/routes.ts","./src/services/udpSocket.ts","./src/utils/apiError.ts","./src/utils/apiResponse.ts","./src/utils/asyncHandler.ts"],"errors":true,"version":"5.9.2"}
