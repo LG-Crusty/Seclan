@@ -16,7 +16,7 @@ const startSockerServer = () => {
       console.log("message :" + msg);
     });
 
-    socket.emit("message", "hi there"); // fix: devices: to devices
+    socket.emit("message", "hi there"); 
   });
 
   //creating custom namespaces
