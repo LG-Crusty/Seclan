@@ -1,4 +1,4 @@
-import { server } from "./index.ts";
+import {server} from "./index"
 import { Server } from "socket.io";
 
 const neededIP: string[] = [];

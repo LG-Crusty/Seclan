@@ -1,7 +1,7 @@
 import express, { urlencoded } from "express";
 import cors from "cors";
-import { errorMiddleware } from "../src/middlewares/errormiddlewares.ts";
-import { router } from "./routes/routes.ts";
+import { errorMiddleware } from "./middlewares/errormiddlewares";
+import { router } from "./routes/routes";
 const app = express();
 
 //cors setup
