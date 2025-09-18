@@ -1,12 +1,14 @@
 import { io, Socket } from "socket.io-client";
 
-const main = process.env.WSSURL_1 as string;
-const founder = process.env.WSSURL_2 as string;
+
+console.log(process.env.NEXT_PUBLIC_WSSURL_1 )
+console.log(process.env.NEXT_PUBLIC_WSSURL_2)
+
 
 export class messanger {
   private socket: Socket;
 
-  constructor(connectionUrl: string) {
+  constructor(connectionUrl: any) {
     this.socket = io(connectionUrl, {
       transports: ["websocket"],
     });
@@ -30,7 +32,7 @@ export class messanger {
   shareVal(message: any) {
     return new Promise((resolve, reject) => {
       // call the particular endpoint
-      const founderSocket = io("http://localhost:9000/founder", {
+      const founderSocket = io(process.env.NEXT_PUBLIC_WSSURL_2, {
         transports: ["websocket"],
       });
 
@@ -53,6 +55,6 @@ export class messanger {
   }
 }
 
-const messangerService = new messanger("http://localhost:9000");
+const messangerService = new messanger(process.env.NEXT_PUBLIC_WSSURL_1);
 
 export { messangerService };
