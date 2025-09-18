@@ -1,7 +1,7 @@
 // import { createServer } from "node:http";
 import { createServer } from "http";
-import { app } from "./app.js";
-import { startSockerServer } from "./socket.server.js";
+import { app } from "./app";
+import { startSockerServer } from "./socket.server";
 import dotenv from "dotenv";
 dotenv.config();
 

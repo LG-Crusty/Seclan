@@ -30,7 +30,7 @@ export class messanger {
   shareVal(message: any) {
     return new Promise((resolve, reject) => {
       // call the particular endpoint
-      const founderSocket = io(founder, {
+      const founderSocket = io("http://localhost:9000/founder", {
         transports: ["websocket"],
       });
 
@@ -53,6 +53,6 @@ export class messanger {
   }
 }
 
-const messangerService = new messanger(main);
+const messangerService = new messanger("http://localhost:9000");
 
 export { messangerService };
