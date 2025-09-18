@@ -5,7 +5,7 @@ const neededIP: string[] = [];
 const startSockerServer = () => {
   const io = new Server(server, {
     cors: {
-      origin: "*", // or your frontend URL
+      origin: process.env.CORS_ORIGIN,
       methods: ["GET", "POST"],
     },
   });
