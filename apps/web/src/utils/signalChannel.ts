@@ -1,10 +1,6 @@
 import { io, Socket } from "socket.io-client";
 
 
-console.log(process.env.NEXT_PUBLIC_WSSURL_1 )
-console.log(process.env.NEXT_PUBLIC_WSSURL_2)
-
-
 export class messanger {
   private socket: Socket;
 
@@ -12,15 +8,19 @@ export class messanger {
     this.socket = io(connectionUrl, {
       transports: ["websocket"],
     });
-    this.socket.on("connect", () => {
-      console.log(`connected to the server : ${this.socket.id}`);
-      this.socket.emit("hello", "klpd hello world");
-    });
+       console.log(this.socket.id)
+    this.socket.emit("handshake", "hello socket")
+    this.socket.on("handshake", (message)=>{
+      console.log( "handshake message :" + message )
+    })
   }
 
-  // manual connector
+  // checking 
   connect() {
-    return { message: " socket is connected" };
+   
+    if (this.socket.id){
+      return { message: " socket is connected" };
+    }
   }
 
   disconnect() {
@@ -43,12 +43,11 @@ export class messanger {
 
       // for recieving the message
       founderSocket.on("main_message", (message) => {
-        console.log(message);
         resolve(message);
       });
 
       //for error handling
-      founderSocket.on("connect_error", (err) => {
+      founderSocket.on("message", (err) => {
         reject(err);
       });
     });

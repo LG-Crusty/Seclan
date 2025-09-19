@@ -12,17 +12,19 @@ const startSockerServer = () => {
 
   //socket connection setup
   io.on("message", (socket) => {
-    socket.on("chat message", (msg: string) => {
+
+    socket.on("handshake", (msg: string) => {
       console.log("message :" + msg);
     });
 
-    socket.emit("message", "hi there"); 
+    socket.emit("handshake", "hi there"); 
   });
 
   //creating custom namespaces
 
   //for gaining ip4 Address
   const founder = io.of("/founder");
+  
   founder.on("connection", (socket) => {
     console.log("connection established");
 
@@ -36,7 +38,7 @@ const startSockerServer = () => {
         console.log(ip4Address[0]);
       }
       if (message) {
-        socket.emit("data found", "data found successfully");
+        socket.emit("main_message", "data found successfully");
       }
     });
   });
