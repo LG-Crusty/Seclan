@@ -29,7 +29,7 @@ export class webRTCPeer {
     // calling signaling service 
     const pingingServer = await messangerService.connect();
      console.log(pingingServer)
-    if (pingingServer && pingingServer.message != "") {
+    if (pingingServer) {
       
       const dataChannel = this.connection.createDataChannel("");
 
