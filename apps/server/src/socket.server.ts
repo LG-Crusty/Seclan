@@ -11,7 +11,7 @@ const startSockerServer = () => {
   });
 
   //socket connection setup
-  io.on("message", (socket) => {
+  io.on("connection", (socket) => {
 
     socket.on("handshake", (msg: string) => {
       console.log("message :" + msg);

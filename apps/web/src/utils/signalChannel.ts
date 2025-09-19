@@ -1,26 +1,30 @@
 import { io, Socket } from "socket.io-client";
 
-
 export class messanger {
   private socket: Socket;
+  socketId: string = "";
 
   constructor(connectionUrl: any) {
     this.socket = io(connectionUrl, {
       transports: ["websocket"],
     });
-       console.log(this.socket.id)
-    this.socket.emit("handshake", "hello socket")
-    this.socket.on("handshake", (message)=>{
-      console.log( "handshake message :" + message )
-    })
   }
 
-  // checking 
+  // checking
   connect() {
-   
-    if (this.socket.id){
-      return { message: " socket is connected" };
-    }
+    return new Promise<string>((resolve, reject) => {
+      // for connection with the socket
+      this.socket.on("connection", () => {
+        if (this.socket.id) {
+          resolve("sucesssfully connected");
+        }
+      });
+
+      // for catching error if there is any
+      this.socket.on("connection_error", (error) => {
+        resolve(error);
+      });
+    });
   }
 
   disconnect() {
